@@ -1,9 +1,9 @@
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { DigitalFlagshipShell } from "@/components/layout/digital-flagship-shell";
 import { LandingMarquee } from "@/components/layout/landing-marquee";
 import { Reveal } from "@/components/layout/reveal";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteHeader } from "@/components/layout/site-header";
 import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   Layers,
@@ -25,47 +25,8 @@ export default async function HomePage({
     ?.marqueeItems ?? [t("landing.heroBadge")];
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-[#0a0a0a] text-[#f5f5f5]">
-      <div
-        className="pointer-events-none fixed inset-0 -z-10 opacity-[0.35]"
-        aria-hidden
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      <header className="sticky top-0 z-20 border-b border-white/[0.08] bg-[#0a0a0a]/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-heading-display)] text-sm font-semibold uppercase tracking-[0.2em] text-white"
-          >
-            Content Creator
-          </Link>
-          <nav className="hidden items-center gap-10 text-xs font-medium uppercase tracking-[0.18em] text-white/50 md:flex">
-            <a href="#features" className="transition-colors hover:text-white">
-              {t("nav.features")}
-            </a>
-          </nav>
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Link
-              href="/login"
-              className={cn(
-                "hidden rounded-full border border-white/15 px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-white/80 transition-colors hover:border-white/30 hover:text-white sm:inline-flex",
-              )}
-            >
-              {t("nav.login")}
-            </Link>
-            <Link
-              href="/signup"
-              className="inline-flex items-center rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:bg-neutral-200"
-            >
-              {t("nav.signup")}
-            </Link>
-          </div>
-        </div>
-      </header>
+    <DigitalFlagshipShell>
+      <SiteHeader variant="public" />
 
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-4 pb-8 pt-12 sm:px-6 sm:pb-10 sm:pt-16">
@@ -201,6 +162,6 @@ export default async function HomePage({
       <footer className="border-t border-white/[0.08] py-10 text-center text-xs uppercase tracking-[0.2em] text-white/35">
         © {new Date().getFullYear()} Content Creator
       </footer>
-    </div>
+    </DigitalFlagshipShell>
   );
 }

@@ -6,9 +6,12 @@ import { updateSession } from "@/lib/supabase/middleware";
 const handleI18n = createMiddleware(routing);
 
 export async function middleware(request: NextRequest) {
+  const p = request.nextUrl.pathname;
   if (
-    request.nextUrl.pathname.startsWith("/portal") ||
-    request.nextUrl.pathname.startsWith("/api")
+    p.startsWith("/portal") ||
+    p.startsWith("/api") ||
+    p.startsWith("/admin") ||
+    /^\/(tr|en)\/admin(\/|$)/.test(p)
   ) {
     return await updateSession(request);
   }

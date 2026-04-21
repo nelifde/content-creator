@@ -40,9 +40,14 @@ export function SignupForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glass-card mx-auto max-w-md space-y-4 rounded-2xl p-8">
+    <form
+      onSubmit={onSubmit}
+      className="mx-auto max-w-md space-y-4 rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-lg backdrop-blur-xl"
+    >
       <div className="space-y-2">
-        <Label htmlFor="email">{t("email")}</Label>
+        <Label htmlFor="email" className="text-white/80">
+          {t("email")}
+        </Label>
         <Input
           id="email"
           type="email"
@@ -50,10 +55,13 @@ export function SignupForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="border-white/15 bg-white/[0.06] text-white placeholder:text-white/35"
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">{t("password")}</Label>
+        <Label htmlFor="password" className="text-white/80">
+          {t("password")}
+        </Label>
         <Input
           id="password"
           type="password"
@@ -62,13 +70,14 @@ export function SignupForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
           minLength={6}
+          className="border-white/15 bg-white/[0.06] text-white placeholder:text-white/35"
         />
       </div>
       <Button type="submit" variant="gradient" className="w-full" disabled={loading}>
         {t("submitSignup")}
       </Button>
-      <p className="text-center text-sm text-muted-foreground">
-        <Link href="/login" className="text-primary underline-offset-4 hover:underline">
+      <p className="text-center text-sm text-white/50">
+        <Link href="/login" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
           {t("switchToLogin")}
         </Link>
       </p>

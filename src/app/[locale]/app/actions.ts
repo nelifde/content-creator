@@ -2,7 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { autoTagAssetMock } from "@/lib/ai/autoTag";
+import { countJobTargets } from "@/lib/jobs/process-content-job";
+import { QuotaExceededError, assertQuota, recordUsage } from "@/lib/quota/check";
 import { createClient } from "@/lib/supabase/server";
+import { getWorkspaceIdForBrand } from "@/lib/workspace/resolve";
 
 export async function ensureProfile(displayName?: string) {
   const supabase = await createClient();
@@ -32,7 +35,10 @@ export async function createWorkspace(name: string) {
   if (!user) return { error: "auth" };
   const { data: ws, error } = await supabase
     .from("workspaces")
-    .insert({ name })
+    .insert({
+      name,
+      plan_id: "00000000-0000-0000-0000-000000000001",
+    })
     .select("id")
     .single();
   if (error || !ws) return { error: error?.message ?? "insert" };
@@ -108,6 +114,21 @@ export async function createContentJobRecord(input: {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  const wsId = await getWorkspaceIdForBrand(supabase, input.brandId);
+  if (wsId) {
+    const n = countJobTargets(input.inputType, input.payload);
+    if (n > 0) {
+      try {
+        await assertQuota(supabase, wsId, "ai_call", n);
+        await assertQuota(supabase, wsId, "content_created", n);
+      } catch (e) {
+        if (e instanceof QuotaExceededError) {
+          return { error: e.message };
+        }
+        throw e;
+      }
+    }
+  }
   const { data, error } = await supabase
     .from("content_jobs")
     .insert({
@@ -173,6 +194,17 @@ export async function uploadBrandAsset(formData: FormData) {
 
   const path = `${brandId}/${crypto.randomUUID()}-${file.name.replace(/[^\w.-]+/g, "_")}`;
   const buf = Buffer.from(await file.arrayBuffer());
+  const wsId = await getWorkspaceIdForBrand(supabase, brandId);
+  if (wsId) {
+    try {
+      await assertQuota(supabase, wsId, "storage_bytes", buf.length);
+    } catch (e) {
+      if (e instanceof QuotaExceededError) {
+        return { error: e.message };
+      }
+      throw e;
+    }
+  }
   const { error: upErr } = await supabase.storage
     .from("brand-assets")
     .upload(path, buf, { contentType: file.type || "application/octet-stream" });
@@ -205,6 +237,9 @@ export async function uploadBrandAsset(formData: FormData) {
     .single();
 
   if (error || !data) return { error: error?.message ?? "db" };
+  if (wsId) {
+    await recordUsage(supabase, wsId, "storage_bytes", buf.length, { asset_id: data.id });
+  }
   revalidatePath(`/app`);
   return { id: data.id, publicUrl };
 }

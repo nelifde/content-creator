@@ -1,6 +1,8 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { generateCopyMock, generateImageMock, generateVideoMock } from "@/lib/ai";
 import type { ImageProviderId, VideoProviderId } from "@/lib/ai/types";
+import { assertQuota, recordUsage } from "@/lib/quota/check";
+import { getWorkspaceIdForBrand } from "@/lib/workspace/resolve";
 
 export type JobPayload = {
   platforms: string[];
@@ -68,28 +70,25 @@ function expandTargets(payload: JobPayload, inputType: string) {
   return targets.slice(0, 80);
 }
 
+/** Estimated output rows for quota checks before enqueue. */
+export function countJobTargets(inputType: string, rawPayload: unknown): number {
+  const payload = rawPayload as JobPayload;
+  return expandTargets(payload, inputType).length;
+}
+
 export async function processContentJob(
   supabase: SupabaseClient,
   jobId: string,
   inputType: string,
   rawPayload: unknown,
 ) {
-  const payload = rawPayload as JobPayload;
-  const targets = expandTargets(payload, inputType);
-  const total = targets.length || 1;
-
-  await supabase
+  const { data: jobRow } = await supabase
     .from("content_jobs")
-    .update({ status: "running", progress: 5 })
-    .eq("id", jobId);
-
-  const { data: job } = await supabase
-    .from("content_jobs")
-    .select("brand_id, campaign_id")
+    .select("brand_id, campaign_id, input_type, payload")
     .eq("id", jobId)
     .single();
 
-  if (!job?.brand_id) {
+  if (!jobRow?.brand_id) {
     await supabase
       .from("content_jobs")
       .update({ status: "failed", error_message: "Missing brand" })
@@ -97,12 +96,36 @@ export async function processContentJob(
     return;
   }
 
-  let campaignId = job.campaign_id as string | null;
+  const payload = (jobRow.payload ?? rawPayload) as JobPayload;
+  const resolvedInputType = jobRow.input_type ?? inputType;
+  const targets = expandTargets(payload, resolvedInputType);
+  const total = Math.max(1, targets.length);
+
+  const workspaceId = await getWorkspaceIdForBrand(supabase, jobRow.brand_id);
+  if (workspaceId && targets.length > 0) {
+    try {
+      await assertQuota(supabase, workspaceId, "ai_call", targets.length);
+      await assertQuota(supabase, workspaceId, "content_created", targets.length);
+    } catch {
+      await supabase
+        .from("content_jobs")
+        .update({ status: "failed", error_message: "Quota exceeded" })
+        .eq("id", jobId);
+      return;
+    }
+  }
+
+  await supabase
+    .from("content_jobs")
+    .update({ status: "running", progress: 5 })
+    .eq("id", jobId);
+
+  let campaignId = jobRow.campaign_id as string | null;
   if (!campaignId) {
     const { data: campaign } = await supabase
       .from("campaigns")
       .insert({
-        brand_id: job.brand_id,
+        brand_id: jobRow.brand_id,
         name: payload.campaignName ?? "Bulk kampanya",
       })
       .select("id")
@@ -127,7 +150,7 @@ export async function processContentJob(
   const { data: brand } = await supabase
     .from("brands")
     .select("name, tone")
-    .eq("id", job.brand_id)
+    .eq("id", jobRow.brand_id)
     .single();
 
   let done = 0;
@@ -160,7 +183,7 @@ export async function processContentJob(
 
     await supabase.from("contents").insert({
       campaign_id: campaignId,
-      brand_id: job.brand_id,
+      brand_id: jobRow.brand_id,
       job_id: jobId,
       platform: t.platform,
       aspect_ratio: t.aspect,
@@ -184,4 +207,9 @@ export async function processContentJob(
     .from("content_jobs")
     .update({ status: "completed", progress: 100 })
     .eq("id", jobId);
+
+  if (workspaceId && done > 0) {
+    await recordUsage(supabase, workspaceId, "ai_call", done, { job_id: jobId });
+    await recordUsage(supabase, workspaceId, "content_created", done, { job_id: jobId });
+  }
 }

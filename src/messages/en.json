@@ -100,6 +100,7 @@
     "usedIn": "Used in",
     "recentJobs": "Recent generation jobs",
     "recentCampaigns": "Recent campaigns",
+    "workspaceAdmin": "Admin panel",
     "yourRole": "Your role",
     "noJobs": "No jobs yet",
     "noCampaigns": "No campaigns yet",
@@ -146,5 +147,181 @@
   "errors": {
     "generic": "Something went wrong",
     "unauthorized": "Sign in required"
+  },
+  "admin": {
+    "platform": {
+      "nav": {
+        "dashboard": "Overview",
+        "workspaces": "Workspaces",
+        "users": "Users",
+        "jobs": "Jobs",
+        "content": "Content",
+        "plans": "Plans",
+        "audit": "Audit"
+      },
+      "dashboard": {
+        "title": "Platform admin",
+        "subtitle": "Global metrics and recent activity",
+        "noServiceRole": "SUPABASE_SERVICE_ROLE_KEY is not set — server-side admin operations are disabled.",
+        "workspaces": "Workspaces",
+        "users": "Profiles",
+        "jobsRunning": "Running jobs",
+        "failRate": "Failure rate",
+        "failRateHint": "All time",
+        "contentLast7d": "Content created (last 7 days)"
+      },
+      "workspaces": {
+        "title": "Workspaces",
+        "noServiceRole": "Service role required.",
+        "name": "Name",
+        "plan": "Plan",
+        "status": "Status",
+        "actions": "Actions",
+        "active": "Active",
+        "suspended": "Suspended",
+        "suspend": "Suspend",
+        "unsuspend": "Unsuspend"
+      },
+      "workspaceDetail": {
+        "noServiceRole": "Service role required.",
+        "back": "Back",
+        "suspended": "Suspended",
+        "suspend": "Suspend",
+        "unsuspend": "Unsuspend",
+        "stats": "Statistics",
+        "members": "Members",
+        "brands": "Brands",
+        "plan": "Plan",
+        "changePlan": "Change plan",
+        "savePlan": "Save",
+        "recentJobs": "Recent jobs",
+        "noJobs": "No jobs",
+        "audit": "Audit log",
+        "noAudit": "No entries"
+      },
+      "users": {
+        "title": "Users",
+        "noServiceRole": "Service role required.",
+        "email": "Email",
+        "platformAdmin": "Platform admin",
+        "yes": "Yes",
+        "no": "No",
+        "actions": "Actions",
+        "inviteEmail": "Invite email",
+        "invite": "Invite",
+        "addPlatformAdmin": "Platform admin user ID",
+        "add": "Add",
+        "suspendUser": "Suspend",
+        "unsuspendUser": "Unsuspend"
+      },
+      "jobs": {
+        "title": "Content jobs",
+        "noServiceRole": "Service role required.",
+        "id": "ID",
+        "status": "Status",
+        "progress": "Progress",
+        "error": "Error",
+        "actions": "Actions",
+        "reenqueue": "Re-queue"
+      },
+      "content": {
+        "title": "Content moderation",
+        "noServiceRole": "Service role required.",
+        "titleCol": "Title",
+        "platform": "Platform",
+        "status": "Status",
+        "actions": "Actions",
+        "delete": "Delete"
+      },
+      "plans": {
+        "title": "Plans",
+        "noServiceRole": "Service role required.",
+        "createPlan": "New plan",
+        "name": "Name",
+        "aiLimit": "AI calls limit (period)",
+        "storageLimit": "Storage (bytes)",
+        "contentsLimit": "Contents limit (period)",
+        "save": "Save"
+      },
+      "audit": {
+        "title": "Audit log",
+        "noServiceRole": "Service role required.",
+        "time": "Time",
+        "action": "Action",
+        "scope": "Scope",
+        "workspace": "Workspace"
+      }
+    },
+    "workspace": {
+      "nav": {
+        "dashboard": "Overview",
+        "members": "Members",
+        "clients": "Clients",
+        "brands": "Brands",
+        "jobs": "Jobs",
+        "content": "Content",
+        "usage": "Usage",
+        "audit": "Audit"
+      },
+      "dashboard": {
+        "title": "Workspace admin",
+        "backToWorkspace": "Back to workspace",
+        "aiUsage": "AI (30d)",
+        "storageUsage": "Storage (30d)",
+        "contentsUsage": "Contents (30d)",
+        "quotas": "Quotas",
+        "ai": "AI calls",
+        "storage": "Storage (bytes)",
+        "contents": "Contents",
+        "usageTrend": "AI usage (7 days)"
+      },
+      "members": {
+        "title": "Members",
+        "user": "User",
+        "role": "Role",
+        "actions": "Actions",
+        "inviteEmail": "Invite by email",
+        "invite": "Invite",
+        "remove": "Remove"
+      },
+      "clients": {
+        "title": "Clients",
+        "name": "Name",
+        "created": "Created"
+      },
+      "brands": {
+        "title": "Brands",
+        "hint": "Use the main workspace dashboard for full brand workflows.",
+        "name": "Name",
+        "id": "ID"
+      },
+      "jobs": {
+        "title": "Jobs",
+        "id": "ID",
+        "status": "Status",
+        "progress": "Progress",
+        "error": "Error"
+      },
+      "content": {
+        "title": "Content",
+        "titleCol": "Title",
+        "platform": "Platform",
+        "status": "Status"
+      },
+      "usage": {
+        "title": "Usage",
+        "ai": "AI",
+        "storage": "Storage",
+        "contents": "Contents",
+        "storageTrend": "Storage (7 days)"
+      },
+      "audit": {
+        "title": "Audit",
+        "time": "Time",
+        "action": "Action",
+        "actor": "Actor"
+      },
+      "suspended": "This workspace is suspended. Contact support."
+    }
   }
 }

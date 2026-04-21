@@ -100,6 +100,7 @@
     "usedIn": "Kullanıldığı içerikler",
     "recentJobs": "Son üretim işleri",
     "recentCampaigns": "Son kampanyalar",
+    "workspaceAdmin": "Yönetim paneli",
     "yourRole": "Rolünüz",
     "noJobs": "Henüz iş yok",
     "noCampaigns": "Henüz kampanya yok",
@@ -146,5 +147,181 @@
   "errors": {
     "generic": "Bir hata oluştu",
     "unauthorized": "Oturum gerekli"
+  },
+  "admin": {
+    "platform": {
+      "nav": {
+        "dashboard": "Özet",
+        "workspaces": "Çalışma alanları",
+        "users": "Kullanıcılar",
+        "jobs": "İşler",
+        "content": "İçerik",
+        "plans": "Planlar",
+        "audit": "Denetim"
+      },
+      "dashboard": {
+        "title": "Platform yönetimi",
+        "subtitle": "Genel metrikler ve son aktivite",
+        "noServiceRole": "SUPABASE_SERVICE_ROLE_KEY tanımlı değil — sunucu tarafı yönetim işlemleri devre dışı.",
+        "workspaces": "Çalışma alanları",
+        "users": "Profiller",
+        "jobsRunning": "Çalışan işler",
+        "failRate": "Hata oranı",
+        "failRateHint": "Tüm zamanlar",
+        "contentLast7d": "Son 7 gün içerik oluşturma"
+      },
+      "workspaces": {
+        "title": "Çalışma alanları",
+        "noServiceRole": "Service role gerekli.",
+        "name": "Ad",
+        "plan": "Plan",
+        "status": "Durum",
+        "actions": "İşlemler",
+        "active": "Aktif",
+        "suspended": "Askıda",
+        "suspend": "Askıya al",
+        "unsuspend": "Aç"
+      },
+      "workspaceDetail": {
+        "noServiceRole": "Service role gerekli.",
+        "back": "Geri",
+        "suspended": "Askıda",
+        "suspend": "Askıya al",
+        "unsuspend": "Aç",
+        "stats": "İstatistik",
+        "members": "Üyeler",
+        "brands": "Markalar",
+        "plan": "Plan",
+        "changePlan": "Plan değiştir",
+        "savePlan": "Kaydet",
+        "recentJobs": "Son işler",
+        "noJobs": "İş yok",
+        "audit": "Denetim kaydı",
+        "noAudit": "Kayıt yok"
+      },
+      "users": {
+        "title": "Kullanıcılar",
+        "noServiceRole": "Service role gerekli.",
+        "email": "E-posta",
+        "platformAdmin": "Platform admin",
+        "yes": "Evet",
+        "no": "Hayır",
+        "actions": "İşlemler",
+        "inviteEmail": "Davet e-postası",
+        "invite": "Davet et",
+        "addPlatformAdmin": "Platform admin kullanıcı ID",
+        "add": "Ekle",
+        "suspendUser": "Askıya al",
+        "unsuspendUser": "Aktifleştir"
+      },
+      "jobs": {
+        "title": "İçerik işleri",
+        "noServiceRole": "Service role gerekli.",
+        "id": "ID",
+        "status": "Durum",
+        "progress": "İlerleme",
+        "error": "Hata",
+        "actions": "İşlemler",
+        "reenqueue": "Yeniden kuyruğa al"
+      },
+      "content": {
+        "title": "İçerik moderasyonu",
+        "noServiceRole": "Service role gerekli.",
+        "titleCol": "Başlık",
+        "platform": "Platform",
+        "status": "Durum",
+        "actions": "İşlemler",
+        "delete": "Sil"
+      },
+      "plans": {
+        "title": "Planlar",
+        "noServiceRole": "Service role gerekli.",
+        "createPlan": "Yeni plan",
+        "name": "Ad",
+        "aiLimit": "AI çağrı limiti (dönem)",
+        "storageLimit": "Depolama (bayt)",
+        "contentsLimit": "İçerik limiti (dönem)",
+        "save": "Kaydet"
+      },
+      "audit": {
+        "title": "Denetim günlüğü",
+        "noServiceRole": "Service role gerekli.",
+        "time": "Zaman",
+        "action": "Eylem",
+        "scope": "Kapsam",
+        "workspace": "Çalışma alanı"
+      }
+    },
+    "workspace": {
+      "nav": {
+        "dashboard": "Özet",
+        "members": "Üyeler",
+        "clients": "Müşteriler",
+        "brands": "Markalar",
+        "jobs": "İşler",
+        "content": "İçerik",
+        "usage": "Kullanım",
+        "audit": "Denetim"
+      },
+      "dashboard": {
+        "title": "Çalışma alanı yönetimi",
+        "backToWorkspace": "Panele dön",
+        "aiUsage": "AI (30 gün)",
+        "storageUsage": "Depolama (30 gün)",
+        "contentsUsage": "İçerik (30 gün)",
+        "quotas": "Kotalar",
+        "ai": "AI çağrıları",
+        "storage": "Depolama (bayt)",
+        "contents": "İçerik",
+        "usageTrend": "AI kullanımı (7 gün)"
+      },
+      "members": {
+        "title": "Üyeler",
+        "user": "Kullanıcı",
+        "role": "Rol",
+        "actions": "İşlemler",
+        "inviteEmail": "E-posta ile davet",
+        "invite": "Davet et",
+        "remove": "Çıkar"
+      },
+      "clients": {
+        "title": "Müşteriler",
+        "name": "Ad",
+        "created": "Oluşturulma"
+      },
+      "brands": {
+        "title": "Markalar",
+        "hint": "Marka detayları için ana çalışma alanı panelini kullanın.",
+        "name": "Ad",
+        "id": "ID"
+      },
+      "jobs": {
+        "title": "İşler",
+        "id": "ID",
+        "status": "Durum",
+        "progress": "İlerleme",
+        "error": "Hata"
+      },
+      "content": {
+        "title": "İçerik",
+        "titleCol": "Başlık",
+        "platform": "Platform",
+        "status": "Durum"
+      },
+      "usage": {
+        "title": "Kullanım",
+        "ai": "AI",
+        "storage": "Depolama",
+        "contents": "İçerik",
+        "storageTrend": "Depolama (7 gün)"
+      },
+      "audit": {
+        "title": "Denetim",
+        "time": "Zaman",
+        "action": "Eylem",
+        "actor": "Aktör"
+      },
+      "suspended": "Bu çalışma alanı askıya alındı. Destek ile iletişime geçin."
+    }
   }
 }

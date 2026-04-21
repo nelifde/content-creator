@@ -9,7 +9,7 @@ npm install
 cp .env.example .env.local
 ```
 
-Supabase adımları için [supabase/README.md](supabase/README.md) dosyasına bakın. SQL: [supabase/migrations/001_initial_schema.sql](supabase/migrations/001_initial_schema.sql). Ardından `.env.local` içine URL ve anahtarları ekleyin.
+Supabase adımları için [supabase/README.md](supabase/README.md) dosyasına bakın. Migration dosyaları: `001_initial_schema.sql`, `002_admin_schema.sql`, `003_stripe_subscriptions.sql` (opsiyonel). Ardından `.env.local` içine URL ve anahtarları ekleyin.
 
 **Client portal** ve arka plan işleri için `SUPABASE_SERVICE_ROLE_KEY` gerekir (yalnızca sunucu tarafında kullanın).
 
@@ -19,6 +19,8 @@ npm run dev
 
 - Pazarlama: `/` (varsayılan dil `tr`)
 - Uygulama: `/app`
+- **Platform yönetimi** (super-admin): `/admin` — `platform_admins` tablosunda kayıtlı kullanıcılar + `SUPABASE_SERVICE_ROLE_KEY`
+- **Çalışma alanı yönetimi** (workspace admin): `/app/[workspaceId]/admin` — `workspace_members.role = admin`
 
 ## Stack
 

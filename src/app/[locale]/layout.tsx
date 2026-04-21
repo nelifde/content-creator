@@ -35,6 +35,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <div
+        lang={locale}
         className={`${inter.variable} ${spaceGrotesk.variable} flex min-h-full flex-1 flex-col font-sans`}
         style={{
           fontFamily: "var(--font-sans-body), system-ui, sans-serif",

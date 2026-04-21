@@ -96,9 +96,19 @@ export default async function WorkspaceDashboardPage({
           <h1 className="text-2xl font-semibold tracking-tight">{workspace?.name}</h1>
           <p className="text-muted-foreground">{t("clients")}</p>
         </div>
-        <Badge variant="secondary" className="capitalize">
-          {t("yourRole")}: {member.role}
-        </Badge>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="secondary" className="capitalize">
+            {t("yourRole")}: {member.role}
+          </Badge>
+          {member.role === "admin" ? (
+            <Link
+              href={`/app/${workspaceId}/admin`}
+              className="text-xs font-medium text-primary underline-offset-4 hover:underline"
+            >
+              {t("workspaceAdmin")}
+            </Link>
+          ) : null}
+        </div>
       </div>
 
       <section className="space-y-3">
