@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Content Creator",
+    "description": "Bulk social content for agencies"
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "login": "Log in",
+    "signup": "Sign up",
+    "dashboard": "Dashboard",
+    "logout": "Log out",
+    "app": "App"
+  },
+  "landing": {
+    "heroBadge": "AI-powered bulk content",
+    "heroTitle": "Scale social for",
+    "heroTitleAccent": "every brand you manage",
+    "heroSubtitle": "Ship dozens of platform-ready visuals, videos, and copy from a brief, prompt, or CSV. Approvals and export in one place.",
+    "ctaPrimary": "Try for free",
+    "ctaSecondary": "See features",
+    "statsUsers": "Agency teams",
+    "statsPosts": "Assets generated",
+    "statsPlatforms": "Platforms supported"
+  },
+  "features": {
+    "title": "Why Content Creator?",
+    "subtitle": "Modern UI inspired by Buzzabout; powerful bulk pipeline.",
+    "bulk": {
+      "title": "Bulk generation",
+      "desc": "Prompt variants, CSV, campaign briefs, and template × asset combos."
+    },
+    "brand": {
+      "title": "Brand consistency",
+      "desc": "Colors, fonts, logos, tone, and guideline PDF on every output."
+    },
+    "approval": {
+      "title": "Approval & client portal",
+      "desc": "Draft → review → approved → ready. Clients see only their brand via token."
+    },
+    "convert": {
+      "title": "Bulk converter",
+      "desc": "Batch resize assets to ratios and formats; download as ZIP."
+    }
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "signupTitle": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "submitLogin": "Log in",
+    "submitSignup": "Sign up",
+    "switchToSignup": "No account? Sign up",
+    "switchToLogin": "Have an account? Log in"
+  },
+  "app": {
+    "workspaces": "Workspaces",
+    "newWorkspace": "New agency",
+    "clients": "Clients",
+    "brands": "Brands",
+    "assets": "Assets",
+    "templates": "Templates",
+    "campaigns": "Campaigns",
+    "create": "Bulk create",
+    "convert": "Bulk convert",
+    "settings": "Brand settings",
+    "overview": "Overview",
+    "selectWorkspace": "Select a workspace",
+    "noWorkspaces": "No workspaces yet. Create your first agency.",
+    "workspaceName": "Agency name",
+    "createWorkspace": "Create",
+    "clientName": "Client name",
+    "brandName": "Brand name",
+    "addClient": "Add client",
+    "addBrand": "Add brand",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "search": "Search",
+    "tags": "Tags",
+    "folder": "Folder",
+    "upload": "Upload",
+    "version": "Version",
+    "usedIn": "Used in",
+    "recentJobs": "Recent generation jobs",
+    "recentCampaigns": "Recent campaigns",
+    "yourRole": "Your role",
+    "noJobs": "No jobs yet",
+    "noCampaigns": "No campaigns yet",
+    "jobStatus": "Status",
+    "viewCampaign": "Open campaign"
+  },
+  "bulkCreator": {
+    "title": "Bulk content",
+    "step1": "Input method",
+    "step2": "Platform & ratio",
+    "step3": "Brand & language",
+    "step4": "AI provider",
+    "step5": "Review & generate",
+    "inputPrompt": "Prompt + variants",
+    "inputCsv": "CSV upload",
+    "inputBrief": "Campaign brief",
+    "inputTemplate": "Template × assets",
+    "inputMultiply": "Platform multiply",
+    "next": "Next",
+    "back": "Back",
+    "generate": "Start generation"
+  },
+  "campaign": {
+    "board": "Content board",
+    "draft": "Draft",
+    "review": "In review",
+    "approved": "Approved",
+    "ready": "Ready",
+    "moveToReview": "Send to review",
+    "approve": "Approve",
+    "markReady": "Mark ready"
+  },
+  "comments": {
+    "title": "Comments",
+    "placeholder": "Write a comment... mention with @user",
+    "submit": "Send"
+  },
+  "portal": {
+    "title": "Approval portal",
+    "subtitle": "Pending content for your brand",
+    "approve": "Approve",
+    "requestChanges": "Request changes"
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "unauthorized": "Sign in required"
+  }
+}

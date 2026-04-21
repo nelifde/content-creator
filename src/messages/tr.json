@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Content Creator",
+    "description": "Ajanslar için toplu sosyal medya içerik üretimi"
+  },
+  "nav": {
+    "home": "Ana sayfa",
+    "features": "Özellikler",
+    "pricing": "Fiyatlandırma",
+    "login": "Giriş",
+    "signup": "Kayıt ol",
+    "dashboard": "Panel",
+    "logout": "Çıkış",
+    "app": "Uygulama"
+  },
+  "landing": {
+    "heroBadge": "AI destekli bulk içerik",
+    "heroTitle": "Markalarınız için",
+    "heroTitleAccent": "sosyal medyayı ölçeklendirin",
+    "heroSubtitle": "Brief, prompt veya CSV ile dakikalar içinde onlarca platform için görsel, video ve metin üretin. Onay akışı ve export tek yerde.",
+    "ctaPrimary": "Ücretsiz dene",
+    "ctaSecondary": "Özellikleri gör",
+    "statsUsers": "Ajans ekipleri",
+    "statsPosts": "Üretilen içerik",
+    "statsPlatforms": "Platform desteği"
+  },
+  "features": {
+    "title": "Neden Content Creator?",
+    "subtitle": "Buzzabout tarzı modern arayüz; güçlü bulk pipeline.",
+    "bulk": {
+      "title": "Bulk üretim",
+      "desc": "Prompt varyantları, CSV, kampanya brief'i ve şablon × asset kombinasyonları."
+    },
+    "brand": {
+      "title": "Marka tutarlılığı",
+      "desc": "Renk, font, logo, ton ve rehber PDF ile her çıktı markanıza uygun."
+    },
+    "approval": {
+      "title": "Onay & müşteri portalı",
+      "desc": "Draft → review → approved → ready. Müşteriler token ile sadece kendi markalarını görür."
+    },
+    "convert": {
+      "title": "Bulk converter",
+      "desc": "Varlıkları toplu olarak farklı oran ve formata dönüştürün, ZIP indirin."
+    }
+  },
+  "auth": {
+    "loginTitle": "Giriş yap",
+    "signupTitle": "Hesap oluştur",
+    "email": "E-posta",
+    "password": "Şifre",
+    "submitLogin": "Giriş",
+    "submitSignup": "Kayıt ol",
+    "switchToSignup": "Hesabınız yok mu? Kayıt olun",
+    "switchToLogin": "Zaten hesabınız var mı? Giriş yapın"
+  },
+  "app": {
+    "workspaces": "Çalışma alanları",
+    "newWorkspace": "Yeni ajans",
+    "clients": "Müşteriler",
+    "brands": "Markalar",
+    "assets": "Varlıklar",
+    "templates": "Şablonlar",
+    "campaigns": "Kampanyalar",
+    "create": "Bulk oluştur",
+    "convert": "Bulk dönüştür",
+    "settings": "Marka ayarları",
+    "overview": "Özet",
+    "selectWorkspace": "Çalışma alanı seçin",
+    "noWorkspaces": "Henüz çalışma alanı yok. Yeni bir ajans oluşturun.",
+    "workspaceName": "Ajans adı",
+    "createWorkspace": "Oluştur",
+    "clientName": "Müşteri adı",
+    "brandName": "Marka adı",
+    "addClient": "Müşteri ekle",
+    "addBrand": "Marka ekle",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "search": "Ara",
+    "tags": "Etiketler",
+    "folder": "Klasör",
+    "upload": "Yükle",
+    "version": "Sürüm",
+    "usedIn": "Kullanıldığı içerikler",
+    "recentJobs": "Son üretim işleri",
+    "recentCampaigns": "Son kampanyalar",
+    "yourRole": "Rolünüz",
+    "noJobs": "Henüz iş yok",
+    "noCampaigns": "Henüz kampanya yok",
+    "jobStatus": "Durum",
+    "viewCampaign": "Kampanyayı aç"
+  },
+  "bulkCreator": {
+    "title": "Bulk içerik oluştur",
+    "step1": "Girdi yöntemi",
+    "step2": "Platform & oran",
+    "step3": "Marka & dil",
+    "step4": "AI sağlayıcı",
+    "step5": "Özet & üret",
+    "inputPrompt": "Prompt + varyant sayısı",
+    "inputCsv": "CSV yükle",
+    "inputBrief": "Kampanya brief'i",
+    "inputTemplate": "Şablon × varlıklar",
+    "inputMultiply": "Platform çoğaltma",
+    "next": "İleri",
+    "back": "Geri",
+    "generate": "Üretimi başlat"
+  },
+  "campaign": {
+    "board": "İçerik panosu",
+    "draft": "Taslak",
+    "review": "İncelemede",
+    "approved": "Onaylandı",
+    "ready": "Hazır",
+    "moveToReview": "İncelemeye gönder",
+    "approve": "Onayla",
+    "markReady": "Hazır işaretle"
+  },
+  "comments": {
+    "title": "Yorumlar",
+    "placeholder": "Yorum yazın... @kullanıcı ile bahset",
+    "submit": "Gönder"
+  },
+  "portal": {
+    "title": "Onay portalı",
+    "subtitle": "Markanız için bekleyen içerikler",
+    "approve": "Onayla",
+    "requestChanges": "Revizyon iste"
+  },
+  "errors": {
+    "generic": "Bir hata oluştu",
+    "unauthorized": "Oturum gerekli"
+  }
+}
