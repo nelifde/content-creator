@@ -17,16 +17,31 @@
     "heroBadge": "AI-powered bulk content",
     "heroTitle": "Scale social for",
     "heroTitleAccent": "every brand you manage",
+    "heroLine1": "CREATED FOR",
+    "heroLine2": "EVERY BRAND",
     "heroSubtitle": "Ship dozens of platform-ready visuals, videos, and copy from a brief, prompt, or CSV. Approvals and export in one place.",
     "ctaPrimary": "Try for free",
     "ctaSecondary": "See features",
     "statsUsers": "Agency teams",
     "statsPosts": "Assets generated",
-    "statsPlatforms": "Platforms supported"
+    "statsPlatforms": "Platforms supported",
+    "marqueeItems": [
+      "Bulk generation",
+      "Brand systems",
+      "Approval flows",
+      "Export & convert",
+      "AI-assisted"
+    ],
+    "riseTitle": "Helping you rise above the noise",
+    "riseSubtitle": "From first brief to approved assets, we give teams a flagship workflow: structured inputs, consistent output, and room to iterate fast.",
+    "riseTags": "New campaigns · Store-wide refreshes · Template systems · Client portals · Landing experiments · CRO-ready exports · Ongoing iteration",
+    "scaleTitle": "Scaling the next wave of content ops",
+    "scaleSubtitle": "Select capabilities teams ship with Content Creator.",
+    "ctaBand": "Elevate your content workflow"
   },
   "features": {
     "title": "Why Content Creator?",
-    "subtitle": "Modern UI inspired by Buzzabout; powerful bulk pipeline.",
+    "subtitle": "Editorial clarity, flagship execution — a focused pipeline for agencies.",
     "bulk": {
       "title": "Bulk generation",
       "desc": "Prompt variants, CSV, campaign briefs, and template × asset combos."

@@ -142,6 +142,14 @@
 }
 
 @layer utilities {
+  .df-marquee {
+    overflow: hidden;
+  }
+
+  .df-marquee-track {
+    animation: df-marquee 55s linear infinite;
+  }
+
   .glass-card {
     @apply border border-white/10 bg-white/40 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/30;
   }
@@ -163,5 +171,20 @@
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+@keyframes df-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .df-marquee-track {
+    animation: none;
   }
 }

@@ -17,16 +17,31 @@
     "heroBadge": "AI destekli bulk içerik",
     "heroTitle": "Markalarınız için",
     "heroTitleAccent": "sosyal medyayı ölçeklendirin",
+    "heroLine1": "HER MARKA",
+    "heroLine2": "İÇİN",
     "heroSubtitle": "Brief, prompt veya CSV ile dakikalar içinde onlarca platform için görsel, video ve metin üretin. Onay akışı ve export tek yerde.",
     "ctaPrimary": "Ücretsiz dene",
     "ctaSecondary": "Özellikleri gör",
     "statsUsers": "Ajans ekipleri",
     "statsPosts": "Üretilen içerik",
-    "statsPlatforms": "Platform desteği"
+    "statsPlatforms": "Platform desteği",
+    "marqueeItems": [
+      "Bulk üretim",
+      "Marka sistemleri",
+      "Onay akışları",
+      "Export & dönüştürme",
+      "AI destekli"
+    ],
+    "riseTitle": "Gürültünün üzerine çıkmanız için",
+    "riseSubtitle": "İlk brief’ten onaylı varlıklara kadar amiral gemisi bir iş akışı: yapılandırılmış girdiler, tutarlı çıktı ve hızlı iterasyon alanı.",
+    "riseTags": "Yeni kampanyalar · Geniş yenilemeler · Şablon sistemleri · Müşteri portalları · Landing deneyleri · CRO’ya hazır export · Sürekli iterasyon",
+    "scaleTitle": "İçerik operasyonlarının yeni dalgasını ölçeklendirmek",
+    "scaleSubtitle": "Ekiplerin Content Creator ile sunduğu yetenekler.",
+    "ctaBand": "İçerik iş akışınızı yükseltin"
   },
   "features": {
     "title": "Neden Content Creator?",
-    "subtitle": "Buzzabout tarzı modern arayüz; güçlü bulk pipeline.",
+    "subtitle": "Editoryal netlik, amiral gemisi uygulama — ajanslar için odaklı bir pipeline.",
     "bulk": {
       "title": "Bulk üretim",
       "desc": "Prompt varyantları, CSV, kampanya brief'i ve şablon × asset kombinasyonları."
