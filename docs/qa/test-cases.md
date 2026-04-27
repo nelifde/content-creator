@@ -12,6 +12,7 @@ Bu doküman MVP kapsamında kritik kullanıcı akışlarını doğrulamak için 
 | Ortam değişkenleri | `.env.local` — `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`; portal ve platform admin için sunucuda `SUPABASE_SERVICE_ROLE_KEY` |
 | Veritabanı | Supabase migration'lar uygulanmış; mümkünse taze veya bilinen test verisi |
 | Sunucu | `npm run dev` — varsayılan `http://localhost:3000` |
+| Otomasyon | TC-01, TC-02 ve smoke için Playwright: `e2e/README.md`, `npm run test:e2e` |
 | Tarayıcı | Chromium tabanlı + gizli pencere (portal token testi için) |
 | E-posta onayı | Supabase Auth’ta e-posta doğrulaması açıksa, test hesabı önceden onaylı olmalı veya dev ortamında kapatılmalı |
 

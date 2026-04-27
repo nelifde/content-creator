@@ -33,22 +33,12 @@ export async function createWorkspace(name: string) {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return { error: "auth" };
-  const { data: ws, error } = await supabase
-    .from("workspaces")
-    .insert({
-      name,
-      plan_id: "00000000-0000-0000-0000-000000000001",
-    })
-    .select("id")
-    .single();
-  if (error || !ws) return { error: error?.message ?? "insert" };
-  await supabase.from("workspace_members").insert({
-    workspace_id: ws.id,
-    user_id: user.id,
-    role: "admin",
+  const { data: wsId, error } = await supabase.rpc("create_workspace_with_admin", {
+    p_name: name,
   });
+  if (error || !wsId) return { error: error?.message ?? "insert" };
   revalidatePath("/app");
-  return { id: ws.id };
+  return { id: wsId as string };
 }
 
 export async function createClientRecord(workspaceId: string, name: string) {

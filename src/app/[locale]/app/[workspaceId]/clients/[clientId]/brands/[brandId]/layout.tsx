@@ -39,7 +39,7 @@ export default async function BrandLayout({
 
   const { data: member } = await supabase
     .from("workspace_members")
-    .select("id")
+    .select("role")
     .eq("workspace_id", workspaceId)
     .eq("user_id", user!.id)
     .maybeSingle();
