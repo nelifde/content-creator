@@ -67,7 +67,8 @@
     "submitLogin": "Log in",
     "submitSignup": "Sign up",
     "switchToSignup": "No account? Sign up",
-    "switchToLogin": "Have an account? Log in"
+    "switchToLogin": "Have an account? Log in",
+    "supabaseFetchFailed": "Could not reach Supabase. Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local match your Supabase project (Settings → API). Restart npm run dev after changing env. Try disabling VPN, corporate proxy, or ad blockers."
   },
   "app": {
     "workspaces": "Workspaces",

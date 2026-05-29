@@ -20,23 +20,31 @@ export function SignupForm() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      toast.error("Supabase .env.local yapılandırın");
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      toast.error("Supabase .env.local yapılandırın (URL ve anon key)");
       return;
     }
     setLoading(true);
-    const supabase = createClient();
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    setLoading(false);
-    if (error) {
-      toast.error(error.message);
-      return;
+    try {
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) {
+        toast.error(error.message);
+        return;
+      }
+      if (data.user) {
+        await ensureProfile(email.split("@")[0]);
+      }
+      toast.success("Hesap oluşturuldu");
+      router.replace("/app");
+    } catch (err) {
+      const failedFetch =
+        err instanceof TypeError ||
+        (err instanceof Error && /failed to fetch|networkerror|load failed/i.test(err.message));
+      toast.error(failedFetch ? t("supabaseFetchFailed") : err instanceof Error ? err.message : String(err));
+    } finally {
+      setLoading(false);
     }
-    if (data.user) {
-      await ensureProfile(email.split("@")[0]);
-    }
-    toast.success("Hesap oluşturuldu");
-    router.replace("/app");
   }
 
   return (

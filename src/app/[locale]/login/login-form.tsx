@@ -19,19 +19,27 @@ export function LoginForm() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      toast.error("Supabase .env.local yapılandırın");
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      toast.error("Supabase .env.local yapılandırın (URL ve anon key)");
       return;
     }
     setLoading(true);
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      toast.error(error.message);
-      return;
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        toast.error(error.message);
+        return;
+      }
+      router.replace("/app");
+    } catch (err) {
+      const failedFetch =
+        err instanceof TypeError ||
+        (err instanceof Error && /failed to fetch|networkerror|load failed/i.test(err.message));
+      toast.error(failedFetch ? t("supabaseFetchFailed") : err instanceof Error ? err.message : String(err));
+    } finally {
+      setLoading(false);
     }
-    router.replace("/app");
   }
 
   return (

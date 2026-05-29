@@ -67,7 +67,8 @@
     "submitLogin": "Giriş",
     "submitSignup": "Kayıt ol",
     "switchToSignup": "Hesabınız yok mu? Kayıt olun",
-    "switchToLogin": "Zaten hesabınız var mı? Giriş yapın"
+    "switchToLogin": "Zaten hesabınız var mı? Giriş yapın",
+    "supabaseFetchFailed": "Supabase sunucusuna ulaşılamadı. .env.local içindeki NEXT_PUBLIC_SUPABASE_URL ve NEXT_PUBLIC_SUPABASE_ANON_KEY değerlerinin Supabase panelindekiyle aynı olduğundan emin olun; .env değiştiyse npm run dev ile sunucuyu yeniden başlatın. VPN, kurumsal proxy veya reklam engelleyiciyi kapatıp tekrar deneyin."
   },
   "app": {
     "workspaces": "Çalışma alanları",
